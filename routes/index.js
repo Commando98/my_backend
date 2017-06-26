@@ -11,6 +11,12 @@ router.get('/', function(req, res, next) {
         else res.json(docs[0]);
     })
 });
-
+router.get('/find',function(req, res, next){
+    docs.find({},function(err, docs){
+        if (err) console.log(err)
+        else res.json(docs[0]);
+    })
+}
+);
 
 module.exports = router;
