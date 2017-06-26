@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
     })
 });
 router.get('/find',function(req, res, next){
-    docs.find({},function(err, docs){
+    docs.find({"id":"we4567"},function(err, docs){
         if (err) console.log(err)
         else res.json(docs[0]);
     })
