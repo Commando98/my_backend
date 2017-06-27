@@ -6,17 +6,20 @@ const docs=db.get('collecu')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    docs.insert({"name":"Mukul_Arora"}, function (err, docs) {
+    docs.insert({"name":""}, function (err, docs) {
         if (err) console.log(err)
         else res.json(docs[0]);
     })
 });
-router.get('/find',function(req, res, next){
-    docs.find({"id":"we4567"},function(err, docs){
-        if (err) console.log(err)
-        else res.json(docs[0]);
+router.post('/find',function(req, res, next) {
+    var username = req.body.name;
+    var pass = req.body.password;
+    docs.insert({"name": username, "password": pass}, function (err, docs) {
+        if (err) console.log(err);
+        else res.json(docs)
+
     })
-}
-);
+
+});
 
 module.exports = router;
