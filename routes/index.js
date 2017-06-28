@@ -6,7 +6,7 @@ const docs=db.get('collecu')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    docs.insert({"name":""}, function (err, docs) {
+    docs.find({"name":"Mukul"}, function (err, docs) {
         if (err) console.log(err)
         else res.json(docs[0]);
     })
