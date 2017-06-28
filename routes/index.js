@@ -11,15 +11,18 @@ router.get('/', function(req, res, next) {
         else res.json(docs[0]);
     })
 });
-router.post('/find',function(req, res, next) {
-    var username = req.body.name;
-    var pass = req.body.password;
-    docs.insert({"name": username, "password": pass}, function (err, docs) {
-        if (err) console.log(err);
-        else res.json(docs)
+router.post('/insert', function(req, res, next) {
+    var flname=req.body.fname;
+    var username=req.body.name;
+    var pass=req.body.password;
+    var cty=req.body.fcity;
+
+    docs.insert({"fullname": flname,"name":username, "password":pass,"city":cty} ,function(err, docs){
+        if(err)console.log(err);
+        else  res.json(docs[0]);
+
 
     })
-
 });
 
 module.exports = router;
